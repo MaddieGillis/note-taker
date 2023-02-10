@@ -3,6 +3,7 @@ const util = require('util');
 const app = require('express').Router();
 const writeFileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
+const router = require('express').Router();
 let notesInfo;
 
 //GET
@@ -34,3 +35,4 @@ app.post('/notes', (req, res) => {
     });
 } );
 
+module.exports = router;
