@@ -1,5 +1,4 @@
 //Brings in express and fs
-const { prototype } = require('events');
 const express = require('express');
 const fs = require('fs');
 const apiRoutes = require('./routes/apiRoutes');
@@ -17,7 +16,7 @@ const PORT = process.env.PORT || 3001
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use("/", htmlRoutes);
 app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
 
 app.listen(PORT, console.log(`Server has launced on PORT ${PORT}`));

@@ -14,7 +14,10 @@ router.get("/notes", (req, res) => {
     readFileAsync('db/db.json').then(function (data) {
         notesInfo = JSON.parse(data);
         res.json(notesInfo);
-    })
+
+        console.log(`The notes info is passing it's: ${notesInfo}`);
+
+    });
 });
 
 //POST
@@ -23,12 +26,12 @@ router.post('/notes', (req, res) => {
     readFileAsync("db/db.json").then(function (data) {
         notesInfo = JSON.parse(data);
 
-        let newPost = req.body;
+        let newNote = req.body;
         let currentId = notesInfo.length;
 
-        newPost.id = currentId + 1;
+        newNote.id = currentId + 1;
 
-        notesInfo.push(newPost);
+        notesInfo.push(newNote);
 
         notesInfo = JSON.stringify(notesInfo);
 
